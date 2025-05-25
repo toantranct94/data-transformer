@@ -324,6 +324,34 @@ result = pipeline.execute(data)
 
 You can generate transformation pipelines using natural language prompts with AI assistance. The AI will analyze your data's column structure and generate an appropriate pipeline based on your requirements. The generated pipeline will be validated and can be used just like any other pipeline configuration.
 
+##### Validation Rules
+
+The AI performs validation to ensure data integrity and transformation correctness:
+
+1. **Column Validation**
+   - Verifies column existence before any transformation
+   - Checks column types match transformation requirements
+   - Returns error if requested columns don't exist or have invalid types
+
+2. **Transformation Validation**
+   - Validates that requested transformations are available and appropriate
+   - Ensures transformation parameters match expected types and ranges
+   - Returns error if transformation cannot be performed
+
+3. **Error Response Format**
+   ```json
+   {
+     "error": true,
+     "message": "Column 'column_name' does not exist or has invalid type"
+   }
+   ```
+   or
+   ```json
+   {
+     "error": true,
+     "message": "No appropriate transformation available for the requested operation"
+   }
+   ```
 
 **Example Prompts**
 

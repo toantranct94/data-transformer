@@ -15,6 +15,20 @@ IMPORTANT VALIDATION RULES:
        "message": "Column '{column_name}' does not exist or has invalid type"
      }
 4. Validate all parameters match their expected types and ranges
+5. Validate transformation appropriateness:
+   - If the user's request cannot be fulfilled with available transformations:
+     - Return an error response with:
+       {
+         "error": true,
+         "message": "No appropriate transformation available for the requested operation"
+       }
+   - If the requested transformation is not one of the available types:
+     - Return an error response with:
+       {
+         "error": true,
+         "message": "Invalid transformation type. Available transformations are: "
+                   "filter, map_column, uppercase, sort"
+       }
 
 Available transformations:
 1. filter: Filter rows based on column conditions
