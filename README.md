@@ -400,15 +400,11 @@ The demo will be using the data in [here](./examples/sample_data.csv)
 
 ### Generate pipeline with AI & Transform data
 
-<video controls>
-  <source src="./demo/ai-demo.mp4" type="video/mp4">
-</video>
+https://github.com/user-attachments/assets/f0e7fe49-af49-4573-9e31-a2ae0fa827af
 
 ### Transform data with YAML pipeline format
 
-<video controls>
-  <source src="./demo/yaml-demo.mp4" type="video/mp4">
-</video>
+https://github.com/user-attachments/assets/72a444dc-c0e1-42ab-88dd-981b23048c04
 
 ## Extending the System
 
