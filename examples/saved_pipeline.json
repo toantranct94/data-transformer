@@ -1,0 +1,38 @@
+{
+  "steps": [
+    {
+      "transformation": "filter",
+      "params": {
+        "column": "city",
+        "operator": "contains",
+        "value": "san"
+      }
+    },
+    {
+      "transformation": "uppercase",
+      "params": {
+        "columns": [
+          "first_name",
+          "last_name"
+        ]
+      }
+    },
+    {
+      "transformation": "map_column",
+      "params": {
+        "type": "rename",
+        "mapping": {
+          "first_name": "firstName",
+          "last_name": "lastName"
+        }
+      }
+    },
+    {
+      "transformation": "sort",
+      "params": {
+        "column": "age",
+        "ascending": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+id,first_name,last_name,age,city,status
+1,john,doe,32,new york,active
+2,jane,smith,28,los angeles,inactive
+3,robert,johnson,45,chicago,active
+4,sarah,williams,36,houston,active
+5,michael,brown,29,phoenix,inactive
+6,emily,jones,41,philadelphia,active
+7,david,miller,27,san antonio,inactive
+8,lisa,davis,38,san diego,active
+9,james,garcia,33,dallas,active
+10,jennifer,rodriguez,31,san jose,inactive 

@@ -1,0 +1,137 @@
+{
+  "examples": [
+    {
+      "name": "Simple Filter",
+      "description": "Filter for active users only",
+      "pipeline": {
+        "steps": [
+          {
+            "transformation": "filter",
+            "params": {
+              "column": "status",
+              "operator": "eq",
+              "value": "active"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Age Filter and Uppercase",
+      "description": "Filter for users over 30 and convert names to uppercase",
+      "pipeline": {
+        "steps": [
+          {
+            "transformation": "filter",
+            "params": {
+              "column": "age",
+              "operator": "gt",
+              "value": 30
+            }
+          },
+          {
+            "transformation": "uppercase",
+            "params": {
+              "columns": ["first_name", "last_name"]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Column Renaming",
+      "description": "Rename columns to more user-friendly names",
+      "pipeline": {
+        "steps": [
+          {
+            "transformation": "map_column",
+            "params": {
+              "type": "rename",
+              "mapping": {
+                "first_name": "firstName",
+                "last_name": "lastName"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Status Mapping and Filtering",
+      "description": "Map status values to numbers and filter for active users",
+      "pipeline": {
+        "steps": [
+          {
+            "transformation": "map_column",
+            "params": {
+              "type": "value_map",
+              "column": "status",
+              "mapping": {
+                "active": 1,
+                "inactive": 0
+              }
+            }
+          },
+          {
+            "transformation": "filter",
+            "params": {
+              "column": "status",
+              "operator": "eq",
+              "value": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Complex Pipeline",
+      "description": "Filter, map values, uppercase, and sort in sequence",
+      "pipeline": {
+        "steps": [
+          {
+            "transformation": "filter",
+            "params": {
+              "column": "age",
+              "operator": "gte",
+              "value": 30
+            }
+          },
+          {
+            "transformation": "map_column",
+            "params": {
+              "type": "value_map",
+              "column": "status",
+              "mapping": {
+                "active": "ACTIVE",
+                "inactive": "INACTIVE"
+              }
+            }
+          },
+          {
+            "transformation": "uppercase",
+            "params": {
+              "columns": ["city"]
+            }
+          },
+          {
+            "transformation": "map_column",
+            "params": {
+              "type": "rename",
+              "mapping": {
+                "first_name": "firstName",
+                "last_name": "lastName"
+              }
+            }
+          },
+          {
+            "transformation": "sort",
+            "params": {
+              "column": "age",
+              "ascending": false
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
